@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f0f0; margin: 0; padding: 0; }
+        .page { max-width: 420px; margin: 80px auto; padding: 24px; background: #fff; border-radius: 10px; box-shadow: 0 12px 24px rgba(0,0,0,.08); }
+        h1 { margin-top: 0; }
+        input { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 6px; }
+        button { width: 100%; padding: 12px; background: #007bff; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+        button:hover { background: #0056d6; }
+        .message { padding: 12px; margin-bottom: 12px; border-radius: 6px; }
+        .error { background: #ffe1e1; color: #9a1212; }
+        .success { background: #e1ffe5; color: #1b6b18; }
+        .footer { font-size: 0.9rem; margin-top: 16px; }
+        a { color: #007bff; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="page">
+    <h1>Sign in</h1>
+    {{if .Error}}<div class="message error">{{.Error}}</div>{{end}}
+    {{if .Success}}<div class="message success">{{.Success}}</div>{{end}}
+    <form action="/login" method="post">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" required />
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required />
+        <button type="submit">Log in</button>
+    </form>
+    <div class="footer">
+        Don't have an account? <a href="/register">Register</a>
+    </div>
+</div>
+</body>
+</html>
